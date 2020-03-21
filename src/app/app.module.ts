@@ -15,6 +15,7 @@ import { ContainerComponent } from './components/container/container.component'
 import { ProfileComponent } from './components/profile/profile.component';
 import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeaderComponent } from './components/shared/header/header.component';
     AppComponent,
     ContainerComponent,
     ProfileComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,12 @@
 .form-box {
-    width: 30%;
+    width: 22vh;
     margin: auto;
     margin-top: 80px;
+    height: 100vh;
 }
 
 ::ng-deep .form-autocomplete {
-    width: auto;
+    width: 100%;
     margin: auto;
 }
 
