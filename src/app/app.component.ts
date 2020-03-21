@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiGithubService } from './services/github.service';
-
+import { FormControl } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  apiList: object;
+  apiList: any[] = [];
   userCollection: string[] = [];
-  avatarCollection: string [] = [];
+  avatarCollection: string[] = [];
+  selectControl = new FormControl();
+  optionFilter: Observable<any[]>;
   constructor(private apiGitHubService: ApiGithubService) { }
+
   ngOnInit() {
     this.apiGitHubService.getUsers().subscribe(res => {
-      this.apiList = res;
-      for (const key in this.apiList) {
-        if (this.apiList.hasOwnProperty(key)) {
-          const element = this.apiList[key];
-          this.userCollection.push(element.login);
-          this.avatarCollection.push(element.avatar_url);
+      for (const key in res) {
+        if (res.hasOwnProperty(key)) {
+          const element = res[key];
+          this.apiList.push(element);
         }
       }
-      console.log(this.userCollection);
-      console.log(this.avatarCollection);
+      this.optionFilter = this.selectControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._optionFilter(value)));
     });
   }
-
-
+  private _optionFilter(value: string): any[] {
+    const filterValue = value;
+    return this.apiList.filter(option => option.login.toLowerCase().includes(filterValue));
+  }
+  displayUsers(user) {
+    return user ? user.login : undefined;
+  }
 }
