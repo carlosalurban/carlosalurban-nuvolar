@@ -11,11 +11,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContainerComponent } from './components/container/container.component'
+import { ProfileComponent } from './components/profile/profile.component';
+import {MatCardModule} from '@angular/material/card';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContainerComponent,
+    ProfileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCardModule
+   
 
   ],
   providers: [],

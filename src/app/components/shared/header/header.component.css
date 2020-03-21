@@ -1,0 +1,11 @@
+img{
+    width: 100%;
+}
+.header-nav{
+   background-color: #4A90E2;
+   max-height: 200px;
+}
+.logo-box{
+    width: 20%;
+    margin: auto;
+}

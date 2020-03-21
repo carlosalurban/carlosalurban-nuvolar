@@ -1,11 +1,2 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="user" aria-label="user" [matAutocomplete]="auto" [formControl]="selectControl">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUsers">
-      <mat-option *ngFor=" let user of optionFilter | async" [value]="user">
-        <img class="example-option-img" aria-hidden [src]="user.avatar_url" height="25">
-        <span>{{user.login}}</span>
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
+<app-header></app-header>
+<router-outlet></router-outlet>

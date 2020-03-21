@@ -6,8 +6,12 @@ import { HttpClient } from '@angular/common/http';
 export class ApiGithubService {
 
   constructor(private http: HttpClient) { }
-  getUsers(){
+  getUsers() {
     const url = 'https://api.github.com/users?'
+    return this.http.get(url);
+  }
+  getUser(userName) {
+    const url = 'https://api.github.com/user/' + userName;
     return this.http.get(url);
   }
 
