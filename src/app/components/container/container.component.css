@@ -1,0 +1,15 @@
+.flex-input {
+    display: flex;
+    width: 150%;
+}
+
+.input-user {
+    display: inline-block;
+    width: 70%
+}
+
+.button-profile {
+    width: 30%;
+    color: goldenrod;
+}
+
