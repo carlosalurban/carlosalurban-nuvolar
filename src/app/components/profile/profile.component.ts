@@ -10,12 +10,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   public user: any;
+  public repo: any;
+  public repoList: any;
   constructor(private gitHubService: ApiGithubService, private routerActive: ActivatedRoute) { }
 
   ngOnInit() {
     this.routerActive.params.subscribe(res => {
-      this.gitHubService.getUser(res.userId).subscribe(user=> this.user=user)
-    })
+      this.gitHubService.getUser(res.userId).subscribe(user => this.user = user);
+      this.gitHubService.getRepos(res.userId).subscribe((repo: any[]) => this.repo = repo)
+    });
   }
 
 }

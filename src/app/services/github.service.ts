@@ -14,5 +14,9 @@ export class ApiGithubService {
     const url = 'https://api.github.com/user/' + userName;
     return this.http.get(url);
   }
+  getRepos(userName){
+    const url ='https://api.github.com/users/'+userName+'/repos';
+    return this.http.get(url);
+  }
 
 }

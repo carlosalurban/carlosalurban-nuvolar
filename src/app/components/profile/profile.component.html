@@ -1,16 +1,22 @@
 <div *ngIf="user" class="profile-box">
-  <button class="btn-goback"[routerLink]="['home']" routerLinkActive="router-link-active"  mat-raised-button color="accent">
+  <button class="btn-goback" [routerLink]="['home']" routerLinkActive="router-link-active" mat-raised-button
+    color="accent">
     <div>&lArr; Go Back!</div>
   </button>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{user.login | uppercase}}</mat-card-title>
-      <mat-card-subtitle>{{user.name}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="user.avatar_url" alt="{{user.avatar_url}}">
-    <mat-card-content>
-      <h5>Public repos: {{user.public_repos}}</h5>
+  <div class="card">
+    <div class="header-card">
+      <div class="img-box">
+        <img [src]="user.avatar_url" alt="{{user.avatar_url}}">
+      </div>
+      <div class="header-box">
+        <h3 class="header">{{user.login | uppercase}}</h3>
+        <h5>{{user.name}}</h5>
+        <div class="box-url">
+          <a href="{{user.html_url}}" target="_blank" class="link-github">{{user.html_url}}</a>
+        </div>
+      </div>
+    </div>
+    <div>
       <h3>Biography</h3>
       <p *ngIf="user.bio">
         {{user.bio}}
@@ -18,13 +24,37 @@
       <p *ngIf="!user.bio">
         this user has no biography...
       </p>
-      <p>
-        <a href="{{user.html_url}}" target="_blank" class="link-github">{{user.html_url}}</a>
-      </p>
-    </mat-card-content>
-    
-  </mat-card>
+      <div class="flex-info">
+        <div class="box-info-repos">
+          repos: {{user.public_repos}}
+        </div>
+        <div class="box-info-foll">
+          Followers:{{user.followers}}
+        </div>
+      </div>
+      <div class="repo-list">
+        <div *ngFor="let repos of repo" class="repo-box">
+          <div class="repos">
+            <a href="{{repos.html_url}}" target="_blank" class="link-github">{{repos.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div *ngIf="!user">
-  <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <div class="lds-default">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>
