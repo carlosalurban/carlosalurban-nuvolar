@@ -3,12 +3,14 @@
   margin: auto;
   margin-top: 15px;
   position: relative;
+  min-height: 285px;
 }
 
 .header-box {
   width: 50%;
   margin: auto;
   text-align: center;
+  min-width: 185px;
 }
 
 .card {
@@ -20,6 +22,7 @@
   -webkit-box-shadow: 15px 12px 30px -5px rgba(166, 166, 166, 1);
   -moz-box-shadow: 15px 12px 30px -5px rgba(166, 166, 166, 1);
   box-shadow: 15px 12px 30px -5px rgba(166, 166, 166, 1);
+  
 }
 
 .flex-info {
@@ -27,6 +30,7 @@
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
+  min-width: 190px;
 }
 
 .box-info-repos {
@@ -48,6 +52,10 @@
 .img-box>img {
   width: 100%;
   border-radius: 50%;
+}
+.link-user{
+  width: 50%;
+  margin:auto;
 }
 
 .link-github {
@@ -251,4 +259,18 @@
     left: 10px;
     bottom: -62px
   }
+}
+@media only screen and (max-width: 445px) {
+  .flex-info {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 190px;
+  }
+  .box-info-foll {
+    margin-top: 8px;
+    width: 40%;
+    font-weight: bold;
+  }
+ 
 }
