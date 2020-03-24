@@ -42,7 +42,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
    
 
   ],
-  providers: [],
+  providers: [ AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
