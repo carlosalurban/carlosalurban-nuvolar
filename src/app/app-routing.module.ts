@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule, ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from './components/container/container.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -16,3 +16,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
