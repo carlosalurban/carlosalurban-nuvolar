@@ -13,9 +13,10 @@ import { MatSlideToggleModule } from '@angular/material/';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContainerComponent } from './components/container/container.component'
 import { ProfileComponent } from './components/profile/profile.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -38,12 +39,13 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatCardModule, 
+    MatCardModule,
     routing
-   
+
 
   ],
-  providers: [ AppRoutingModule],
+  providers: [AppRoutingModule,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
